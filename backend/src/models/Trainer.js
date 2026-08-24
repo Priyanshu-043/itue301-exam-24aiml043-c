@@ -12,6 +12,13 @@ const trainerSchema = new mongoose.Schema(
       required: [true, 'Trainer specialization is required'],
       trim: true
     },
+    email: {
+      type: String,
+      required: [true, 'Trainer email is required'],
+      unique: true,
+      lowercase: true,
+      trim: true
+    },
     available: {
       type: Boolean,
       default: true
