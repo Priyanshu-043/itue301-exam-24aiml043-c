@@ -363,3 +363,21 @@ Use the requests in `docs/api-test-requests.md` in this order:
 - Prevent overlapping bookings for the same trainer/time slot with database-level design and transaction/atomic checks.
 - Add rate limiting and stronger input validation.
 - Add automated tests and API documentation with OpenAPI/Swagger.
+
+
+## Authentication and Admin
+
+The backend supports both member sign-up and sign-in:
+
+- `POST /api/v1/auth/signup`
+- `POST /api/v1/auth/login`
+
+Members receive a JWT with role `Member`. On startup, the server can automatically create an admin account from `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `.env`.
+
+Admin-only trainer management is available at:
+
+- `POST /api/v1/trainers`
+
+The public trainer listing remains `GET /api/v1/trainers`.
+
+After copying `.env.example` to `.env`, use the configured admin credentials to sign in through the frontend. The Admin page then allows trainers to be added.

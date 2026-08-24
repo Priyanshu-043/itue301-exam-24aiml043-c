@@ -24,6 +24,11 @@ const memberSchema = new mongoose.Schema(
       required: [true, 'Member password is required'],
       select: false
     },
+    role: {
+      type: String,
+      enum: ['Member', 'Admin'],
+      default: 'Member'
+    },
     membershipType: {
       type: String,
       enum: {

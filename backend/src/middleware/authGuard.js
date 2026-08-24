@@ -30,7 +30,15 @@ async function authGuard(req, res, next) {
       });
     }
 
+    if (payload.role && payload.role !== member.role) {
+      return res.status(401).json({
+        success: false,
+        message: 'Token role is no longer valid'
+      });
+    }
+
     req.member = member;
+    req.role = member.role;
     next();
   } catch (err) {
     if (err.name === 'JsonWebTokenError' || err.name === 'TokenExpiredError') {

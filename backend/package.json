@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "check": "node --check src/server.js && node --check src/app.js && node --check src/config/db.js && node --check src/middleware/requestLogger.js && node --check src/middleware/authGuard.js && node --check src/middleware/errorHandler.js && node --check src/models/Member.js && node --check src/models/Trainer.js && node --check src/models/ClassBooking.js && node --check src/controllers/authController.js && node --check src/controllers/trainerController.js && node --check src/controllers/bookingController.js && node --check src/routes/authRoutes.js && node --check src/routes/trainerRoutes.js && node --check src/routes/bookingRoutes.js"
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/config/db.js && node --check src/config/seedAdmin.js && node --check src/middleware/requestLogger.js && node --check src/middleware/authGuard.js && node --check src/middleware/roleGuard.js && node --check src/middleware/errorHandler.js && node --check src/models/Member.js && node --check src/models/Trainer.js && node --check src/models/ClassBooking.js && node --check src/controllers/authController.js && node --check src/controllers/trainerController.js && node --check src/controllers/bookingController.js && node --check src/routes/authRoutes.js && node --check src/routes/trainerRoutes.js && node --check src/routes/bookingRoutes.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

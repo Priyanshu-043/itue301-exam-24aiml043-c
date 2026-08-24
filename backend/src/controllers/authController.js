@@ -16,7 +16,8 @@ function memberResponse(member) {
     name: member.name,
     email: member.email,
     phone: member.phone,
-    membershipType: member.membershipType
+    membershipType: member.membershipType,
+    role: member.role
   };
 }
 
