@@ -2,9 +2,11 @@ import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
+import RoleRoute from './components/RoleRoute';
 import LoginPage from './pages/LoginPage';
 import ClassesPage from './pages/ClassesPage';
 import MyBookingsPage from './pages/MyBookingsPage';
+import TrainerDashboard from './pages/TrainerDashboard';
 
 const AdminPanel = lazy(() => import('./pages/AdminPanel'));
 
@@ -16,14 +18,12 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/classes" element={<ClassesPage />} />
           <Route path="/my-bookings" element={<MyBookingsPage />} />
-          <Route
-            path="/admin"
-            element={
-              <Suspense fallback={<div className="status">Loading admin panel...</div>}>
-                <AdminPanel />
-              </Suspense>
-            }
-          />
+          <Route element={<RoleRoute allowedRoles={['Admin']} />}>
+            <Route path="/admin" element={<Suspense fallback={<div className="status">Loading admin panel...</div>}><AdminPanel /></Suspense>} />
+          </Route>
+          <Route element={<RoleRoute allowedRoles={['Trainer']} />}>
+            <Route path="/trainer" element={<TrainerDashboard />} />
+          </Route>
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

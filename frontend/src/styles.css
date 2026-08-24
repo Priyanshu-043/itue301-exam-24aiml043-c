@@ -95,3 +95,24 @@ input:focus, select:focus { outline: 2px solid rgba(0,92,185,.2); border-color: 
   .booking-form { grid-template-columns: 1fr; }
   .booking-card { flex-direction: column; }
 }
+
+.admin-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.admin-header h1 { margin-bottom: 8px; }
+.admin-role { background: #24272a; color: #fff; border-radius: 999px; padding: 8px 14px; font-weight: 800; }
+.admin-layout { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 20px; align-items: start; }
+.admin-card { display: grid; gap: 16px; }
+.admin-card h2 { margin: 0 0 4px; }
+.roster-card { display: block; }
+.roster-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.roster-header p { margin: 0; }
+.trainer-grid.compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.checkbox-label { display: flex !important; grid-template-columns: none !important; flex-direction: row; align-items: center; gap: 9px !important; }
+.checkbox-label input { width: auto; }
+
+@media (max-width: 900px) {
+  .admin-layout { grid-template-columns: 1fr; }
+  .trainer-grid.compact { grid-template-columns: 1fr; }
+}
+
+.role-chip { background: #005cb9; color: #fff; border-radius: 999px; padding: 5px 9px; font-size: .75rem; font-weight: 800; }
+.refresh-button { margin-top: 18px; }

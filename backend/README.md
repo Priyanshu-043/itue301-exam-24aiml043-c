@@ -381,3 +381,17 @@ Admin-only trainer management is available at:
 The public trainer listing remains `GET /api/v1/trainers`.
 
 After copying `.env.example` to `.env`, use the configured admin credentials to sign in through the frontend. The Admin page then allows trainers to be added.
+
+## Trainer login and commitments
+
+Admins create trainers with a name, email, specialization, password, and availability from the frontend Admin panel.
+
+Trainers sign in through `POST /api/v1/auth/login` using the trainer email/password. The response contains `role: "Trainer"` and a JWT.
+
+Trainer commitments are available through:
+
+`GET /api/v1/trainers/me/commitments`
+
+with `Authorization: Bearer <trainer-token>`.
+
+The frontend route `/trainer` displays each trainer's class name, date, time slot, member name, member email, and booking status.

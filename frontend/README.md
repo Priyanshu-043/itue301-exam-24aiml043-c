@@ -52,3 +52,8 @@ See `docs/viva.md`.
 ### Admin login
 
 Configure `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the backend `.env`. Start the backend once so the admin user is created, then sign in on the frontend using those credentials. Admin users see the Admin link and can add trainers.
+
+
+## Trainer dashboard
+
+Trainers are created by an admin with a login email and password. Trainers sign in through the same login page and are redirected to `/trainer`, where they can see their class commitments, dates, time slots, member names, member email addresses, and booking status.

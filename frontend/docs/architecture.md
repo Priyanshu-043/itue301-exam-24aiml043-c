@@ -62,3 +62,7 @@ The frontend reads `VITE_API_URL`. Example:
 ```env
 VITE_API_URL=http://localhost:5000
 ```
+
+## Trainer dashboard flow
+
+Admin creates a trainer account with email/password. The trainer uses the shared login page. The backend identifies trainer credentials, issues a JWT with `role: Trainer` and `userType: Trainer`, and the frontend redirects to `/trainer`. The trainer dashboard calls `GET /api/v1/trainers/me/commitments`; the backend filters `ClassBooking` by the logged-in trainer ID and populates member and trainer details.

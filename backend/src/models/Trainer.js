@@ -15,6 +15,11 @@ const trainerSchema = new mongoose.Schema(
     available: {
       type: Boolean,
       default: true
+    },
+    passwordHash: {
+      type: String,
+      required: [true, 'Trainer password is required'],
+      select: false
     }
   },
   { timestamps: true }

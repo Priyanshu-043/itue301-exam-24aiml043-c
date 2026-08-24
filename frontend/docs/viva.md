@@ -44,3 +44,17 @@ The returned token and member are passed to `AuthContext.login()`, stored in sta
 
 ## 15. Why use state for the booking form?
 The form needs controlled inputs and the selected trainer/time/date must update the UI as the user changes them.
+
+## Trainer UI Viva Questions
+
+1. How does a trainer log in?
+   Trainers use the same login page with the email and password created by an admin.
+
+2. How does the backend know the user is a trainer?
+   The trainer login returns a JWT containing `role: Trainer` and `userType: Trainer`.
+
+3. How does a trainer see only their commitments?
+   `GET /api/v1/trainers/me/commitments` uses the authenticated trainer ID to query `ClassBooking` where `trainerId` matches that ID.
+
+4. Why is the trainer route protected?
+   The route uses `authGuard` and `roleGuard('Trainer')`, so members cannot access it.
